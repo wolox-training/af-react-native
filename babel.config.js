@@ -12,6 +12,7 @@ module.exports = {
           '@components': './src/app/components',
           '@config': './src/config',
           '@constants': './src/constants',
+          '@interfaces': './src/interfaces',
           '@screens': './src/app/screens',
           '@services': './src/services',
         }
