@@ -10,6 +10,8 @@
     "lint": "eslint src"
   },
   "dependencies": {
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/native": "^5.5.0",
     "@types/react": "^16.9.35",
     "@types/react-native": "^0.62.12",
     "eslint-config-prettier": "^6.11.0",
@@ -17,6 +19,10 @@
     "prettier": "^2.0.5",
     "react": "16.11.0",
     "react-native": "0.62.2",
+    "react-native-gesture-handler": "^1.6.1",
+    "react-native-reanimated": "^1.9.0",
+    "react-native-safe-area-context": "^3.0.2",
+    "react-native-screens": "^2.8.0",
     "react-native-typescript-transformer": "^1.2.13",
     "typescript": "^3.9.3"
   },
