@@ -17,6 +17,7 @@ const Library = () => {
       <FlatList 
         data={booksList}
         renderItem={renderItem}
+        keyExtractor={item => item.id}
       />
     </View>
   )
