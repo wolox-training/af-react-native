@@ -1,12 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import Library from '@app/screens/library';
+
+import AppNavigation from './AppNavigation';
 
 const App = () => {
   return (
-    <>
-      <Library />
-    </>
+    <AppNavigation />
   );
 };
 
