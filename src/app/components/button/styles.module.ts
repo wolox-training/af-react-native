@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { WHITE, TUNDORA, TURQUOISE } from '@constants/colors';
+import { WHITE, TRANSPARENT, TURQUOISE } from '@constants/colors';
 
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
-    backgroundColor: 'transparent',
+    backgroundColor: TRANSPARENT,
     borderColor: TURQUOISE,
     borderRadius: 100,
     borderWidth: 1,
