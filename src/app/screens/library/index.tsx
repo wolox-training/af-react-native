@@ -5,7 +5,7 @@ import BookCard from './components/bookCard'
 import { booksList } from '@constants/mocks';
 import { Book } from '@interfaces/books';
 
-import styles from './styles.module';
+import styles from './styles';
 
 const renderItem =({item}: Book) => (
   <BookCard item={item} />

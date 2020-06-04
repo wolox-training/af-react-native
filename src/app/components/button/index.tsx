@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
-import styles from './styles.module';
+import styles from './styles';
 
 interface Button {
   title: string;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, Image } from 'react-native';
 
-import styles from './styles.module';
+import styles from './styles';
 import { Route } from '@interfaces/routes';
 import { Book } from '@interfaces/books';
 import Button from '../../components/button';
