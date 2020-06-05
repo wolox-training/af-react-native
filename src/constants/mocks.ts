@@ -8,7 +8,39 @@ export const booksList = [
     author: 'Timothy Cross',
     img: bookImage,
     year: '2015',
-    type: 'fantasy'
+    type: 'fantasy',
+    comments: [
+      {
+        id: '1',
+        name: 'John Applaseed',
+        image: bookImage,
+        text: 'It was great to see you again earlier. Let\'s definitely get that coffe It was great to see you again earlier'
+      },
+      {
+        id: '2',
+        name: 'Susan Collins',
+        image: bookImage,
+        text: 'Let\'s definitely get that coffe It was great to see you again earlier'
+      },
+      {
+        id: '3',
+        name: 'Aldy',
+        image: bookImage,
+        text: 'It was great to see you again earlier. Let\'s definitely get that coffe It was great to see you again earlier'
+      },
+      {
+        id: '4',
+        name: 'Alejo',
+        image: bookImage,
+        text: 'Let\'s definitely get that coffe It was great to see you again earlier'
+      },
+      {
+        id: '5',
+        name: 'Abril',
+        image: bookImage,
+        text: 'It was great to see you again earlier. Let\'s definitely get that coffe It was great to see you again earlier'
+      },
+    ]
   },
   {
     id: '2',
@@ -16,7 +48,21 @@ export const booksList = [
     author: 'Sofi Oksanen',
     img: bookImage,
     year: '2015',
-    type: 'fantasy'
+    type: 'fantasy',
+    comments: [
+      {
+        id: '1',
+        name: 'John Applaseed',
+        image: bookImage,
+        text: 'It was great to see you again earlier. Let\'s definitely get that coffe It was great to see you again earlier'
+      },
+      {
+        id: '2',
+        name: 'Susan Collins',
+        image: bookImage,
+        text: 'Let\'s definitely get that coffe It was great to see you again earlier'
+      }
+    ]
   },
   {
     id: '3',
@@ -24,7 +70,21 @@ export const booksList = [
     author: 'Peter Sjernstron',
     img: bookImage,
     year: '2015',
-    type: 'fantasy'
+    type: 'fantasy',
+    comments: [
+      {
+        id: '1',
+        name: 'John Applaseed',
+        image: bookImage,
+        text: 'It was great to see you again earlier. Let\'s definitely get that coffe It was great to see you again earlier'
+      },
+      {
+        id: '2',
+        name: 'Susan Collins',
+        image: bookImage,
+        text: 'Let\'s definitely get that coffe It was great to see you again earlier'
+      }
+    ]
   },
   {
     id: '4',
@@ -32,7 +92,21 @@ export const booksList = [
     author: 'Tony Alcazar',
     img: bookImage,
     year: '2015',
-    type: 'fantasy'
+    type: 'fantasy',
+    comments: [
+      {
+        id: '1',
+        name: 'John Applaseed',
+        image: bookImage,
+        text: 'It was great to see you again earlier. Let\'s definitely get that coffe It was great to see you again earlier'
+      },
+      {
+        id: '2',
+        name: 'Susan Collins',
+        image: bookImage,
+        text: 'Let\'s definitely get that coffe It was great to see you again earlier'
+      }
+    ]
   },
   {
     id: '5',
@@ -40,6 +114,20 @@ export const booksList = [
     author: 'Liliana Castilla',
     img: bookImage,
     year: '2015',
-    type: 'fantasy'
+    type: 'fantasy',
+    comments: [
+      {
+        id: '1',
+        name: 'John Applaseed',
+        image: bookImage,
+        text: 'It was great to see you again earlier. Let\'s definitely get that coffe It was great to see you again earlier'
+      },
+      {
+        id: '2',
+        name: 'Susan Collins',
+        image: bookImage,
+        text: 'Let\'s definitely get that coffe It was great to see you again earlier'
+      }
+    ]
   }
 ]

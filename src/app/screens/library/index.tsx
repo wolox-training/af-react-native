@@ -8,7 +8,9 @@ import { Book } from '@interfaces/books';
 import styles from './styles';
 
 const renderItem =({item}: Book) => (
-  <BookCard item={item} />
+  <View>
+    <BookCard item={item} />
+  </View>
 );
 
 const Library = () => {
