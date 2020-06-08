@@ -3,7 +3,6 @@ import { TUNDORA } from '@constants/colors';
 
 const styles = StyleSheet.create({
   comment: {
-    display: "flex",
     flexDirection: "row",
     marginBottom: 30
   },
