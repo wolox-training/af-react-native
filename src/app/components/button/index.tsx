@@ -7,7 +7,7 @@ interface Button {
   title: string;
   style?: any;
   fill?: boolean;
-  onPress: void;
+  onPress: () => void;
 }
 
 const Button = ({title, style, fill, onPress}: Button) => (

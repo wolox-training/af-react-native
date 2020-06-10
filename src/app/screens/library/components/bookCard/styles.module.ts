@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { WHITE, TUNDORA } from '@constants/colors';
 
 const styles = StyleSheet.create({
-  card: {
+  button: {
     backgroundColor: WHITE,
     borderRadius: 5,
     elevation: 1,
@@ -14,22 +14,15 @@ const styles = StyleSheet.create({
   },
   container: {
     flexDirection: 'row',
-    marginBottom: 30
   },
-  content: {
-    justifyContent: 'space-between',
-    marginLeft: 20,
-    maxWidth: 140,
-  },
-  img: {
-    height: 105,
-    width: 69
+  textContainer: {
+    marginHorizontal: 20
   },
   title: {
     color: TUNDORA,
-    fontSize: 24,
+    fontSize: 17,
     fontWeight: 'bold',
-    lineHeight: 25,
+    lineHeight: 20,
   },
   subTitle: {
     color: TUNDORA,
