@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, VirtualizedList } from 'react-native';
+import { View, VirtualizedList, FlatList } from 'react-native';
 import Card from '../../../../components/card';
 import { Comments } from '@interfaces/books';
 import styles from './styles';
@@ -13,11 +13,6 @@ const renderComment = ({item}: Comments) => (
 const CommentsTable = ({comments}: Comments) => {
   const [number, setNumber] = useState(2);
 
-  const getItem = (data: any, index: number) => data[index];
-  const getItemCount = () => {
-    return number
-  }
-
   const handlePress = () => {
     setNumber(5)
   }
@@ -27,16 +22,16 @@ const CommentsTable = ({comments}: Comments) => {
   return (
     <Card style={styles.card}>
       <View style={styles.container}>
-        <VirtualizedList 
+        <FlatList 
           data={comments}
           renderItem={renderComment}
-          getItemCount={getItemCount}
-          getItem={getItem}
           keyExtractor={(item) => item.id}
           inverted
+          initialNumToRender={number}
+          windowSize={1}
         />
       </View>
-      <Button title={viewTitle} onPress={handlePress} style={styles.button}/>
+      {number === 2 && <Button title={viewTitle} onPress={handlePress} style={styles.button}/>}
     </Card>
   )
 }

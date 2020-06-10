@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Library from '@app/screens/library';
-import BookDetail from '@screens/book-detail';
+import BookDetail from '@screens/bookDetails';
 import { LIBRARY, BOOK_DETAIL } from '@constants/routes';
 
 const Stack = createStackNavigator();
