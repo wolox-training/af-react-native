@@ -6,7 +6,7 @@ import navbar from '@assets/bc_nav_bar.png';
 import styles from './styles';
 
 interface Props {
-  handlePress: void;
+  handlePress: () => void | void
   route: {
     name: string;
   },

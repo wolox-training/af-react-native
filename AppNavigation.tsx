@@ -20,7 +20,7 @@ const AppNavigation = () => {
           name={LIBRARY} 
           component={Library} 
           options={({navigation, route}) => ({
-            header: () => <Header handlePress={console.log('notifications')} route={route} icon={notifications}/>
+            header: () => <Header handlePress={() => console.log('notifications')} route={route} icon={notifications}/>
           })}
         />
         <Stack.Screen 

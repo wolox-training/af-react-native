@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, VirtualizedList, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import Card from '../../../../components/card';
 import { Comments } from '@interfaces/books';
 import styles from './styles';
