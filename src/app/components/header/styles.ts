@@ -2,10 +2,11 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   header: { 
-    height: 110, 
+    height: 50, 
     position: 'relative', 
     alignItems: 'center', 
-    flexDirection: 'row' 
+    flexDirection: 'row',
+    marginBottom: 40 
   },
   arrow: {
     height: 20, 
