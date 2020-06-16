@@ -1,32 +1,31 @@
 import React from 'react';
-import { Image, Text, View, TouchableOpacity } from 'react-native';
+import { Image, Text, View, TouchableOpacity, ImageBackground } from 'react-native';
 import navbar from '@assets/bc_nav_bar.png';
-
+import {useNavigation} from '@react-navigation/native';
 
 import styles from './styles';
 
 interface Props {
-  handlePress: () => void | void
-  route: {
-    name: string;
-  },
+  title?: string;
   icon: any;
+  goBack?: boolean;
+  right?: boolean;
 }
 
-const Header = ({route, handlePress, icon }: Props) => {
-  
+const Header = ({title, icon, goBack, right }: Props) => {
+  const handlePress = goBack && useNavigation().goBack;
   return (
-    <View style={styles.header}>
-      <TouchableOpacity onPress={handlePress}>
+    <View style={[styles.header, right && styles.buttonRight]}>
+      <TouchableOpacity onPress={handlePress} style={[styles.button, right && styles.buttonRight]}>
         <Image 
           source={icon}
-          style={styles.arrow}
+          style={[styles.arrow, right && styles.iconRight]}
         />
+        <Text style={styles.title}>{title}</Text>
       </TouchableOpacity>
-      <Text style={styles.title}>{route.name}</Text>
-      <Image 
-      source={navbar}
-      style={styles.backgroundImage} 
+      <ImageBackground 
+        source={navbar}
+        style={styles.backgroundImage} 
       />
     </View>
   )

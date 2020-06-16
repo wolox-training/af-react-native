@@ -1,33 +1,44 @@
 import { StyleSheet } from 'react-native';
+import { IMAGE_SIZE } from '@constants/sizes';
 
 const styles = StyleSheet.create({
   header: { 
-    height: 50, 
-    position: 'relative', 
+    height: 110, 
     alignItems: 'center', 
     flexDirection: 'row',
-    marginBottom: 40 
+    paddingBottom: 40,
+  },
+  button: {
+    flexDirection: 'row'
+  },
+  buttonRight: {
+    flexDirection: 'row-reverse',
+  },
+  iconRight: {
+    transform: [{rotate: '180deg'}]
   },
   arrow: {
-    height: 20, 
+    height: IMAGE_SIZE, 
     marginHorizontal: 12, 
-    width: 20
+    width: IMAGE_SIZE,
   },
   title: {
     fontSize: 17, 
     textTransform: "uppercase", 
     color: "white", 
     fontWeight: "700", 
-    lineHeight: 20
+    lineHeight: 20,
   },
   backgroundImage: { 
-    zIndex: -1, 
-    position: 'absolute', 
-    top: 0, 
-    left: 0, 
-    right: 0, 
     bottom: 0, 
-    resizeMode: 'cover' 
+    flex: 1,
+    justifyContent: "center",
+    left: 0, 
+    position: 'absolute', 
+    resizeMode: 'cover' ,
+    right: 0, 
+    top: 0, 
+    zIndex: -1, 
   }
 });
 

@@ -7,10 +7,9 @@ import Library from '@app/screens/library';
 import BookDetail from '@screens/bookDetails';
 import Header from './src/app/components/header';
 import { LIBRARY, BOOK_DETAIL, WISH } from '@constants/routes';
-import arrow from '@assets/ic_back.png'
-import notifications from '@assets/ic_notifications.png';
 import TabBarIcon from '@components/tabBarIcon';
 import Wish from '@screens/wish';
+import { booksOptions, libraryOptions } from './src/config/navigationOptions';
 
 const Stack = createStackNavigator();
 
@@ -20,17 +19,12 @@ const LibraryScreen = () => {
       <Stack.Screen 
         name={LIBRARY} 
         component={Library} 
-        options={({navigation, route}) => ({
-          header: () => <Header handlePress={() => console.log('notifications')} route={route} icon={notifications}/>
-        })}
+        options={libraryOptions}
       />
       <Stack.Screen 
         name={BOOK_DETAIL} 
         component={BookDetail}
-        options={({navigation, route}) => ({
-          header: () => <Header handlePress={navigation.goBack} route={route} icon={arrow}/>
-        })}
-        
+        options={booksOptions}
       />
     </Stack.Navigator>
   );
