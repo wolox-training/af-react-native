@@ -16,34 +16,30 @@ interface Props {
   size: number;
 }
 
-const TabBarIcon = ({ route }: Route) => ({
-  tabBarLabel: ({ focused }: Props) => {
-    return (
-      <Text style={[focused ? styles.focused: styles.inactive]}>{route.name}</Text>
-    )
-  },
-  tabBarIcon: ({ focused, size }: Props) => {
-    let image = libraryActive;
-    if(route.name === LIBRARY) {
-      if(focused) {
-        image = libraryActive
-      }
-      else {
-        image = libraryInactive
-      }
-    }   
-    if(route.name === WISH) {
-      if(focused) {
-        image = wishActive
-      }
-      else {
-        image = wishInactive
-      }
-    }
-    return (
-      <Image source={image} style={{height: size, width: size}} />
-    )
+const ACTIVE_ICON = 'activeIcon';
+const INACTIVE_ICON = 'inactiveIcon';
+
+const TabBarIcon = ({ route }: Route) => {
+  const tabsItems = { 
+    [LIBRARY]: { [ACTIVE_ICON]: libraryActive, [INACTIVE_ICON]: libraryInactive, title: LIBRARY },
+    [WISH] : { [ACTIVE_ICON]: wishActive, [INACTIVE_ICON]: wishInactive, title: WISH } 
   }
-})
+
+  return ({
+    tabBarLabel: ({ focused }: Props) => {
+      return (
+        <Text style={[focused ? styles.focused: styles.inactive]}>{tabsItems[route.name].title}</Text>
+      )
+    },
+    tabBarIcon: ({ focused, size }: Props) => {
+      let icon = tabsItems[route.name][focused ? 'activeIcon' : 'inactiveIcon'];
+      return (
+        <Image source={icon} style={{height: size, width: size}} />
+      )
+    }
+  })
+}
+
+
 
 export default TabBarIcon;

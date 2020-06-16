@@ -5,7 +5,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Library from '@app/screens/library';
 import BookDetail from '@screens/bookDetails';
-import Header from './src/app/components/header';
 import { LIBRARY, BOOK_DETAIL, WISH } from '@constants/routes';
 import TabBarIcon from '@components/tabBarIcon';
 import Wish from '@screens/wish';
