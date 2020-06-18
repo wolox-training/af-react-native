@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flexDirection: 'row',
-    marginBottom: 30
+    marginBottom: 20
   },
   content: {
     justifyContent: 'space-between',
