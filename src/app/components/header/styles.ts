@@ -7,15 +7,13 @@ const styles = StyleSheet.create({
     alignItems: 'center', 
     flexDirection: 'row',
     paddingBottom: 40,
+    justifyContent: 'space-between'
   },
   button: {
     flexDirection: 'row'
   },
   buttonRight: {
     flexDirection: 'row-reverse',
-  },
-  iconRight: {
-    transform: [{rotate: '180deg'}]
   },
   arrow: {
     height: IMAGE_SIZE, 

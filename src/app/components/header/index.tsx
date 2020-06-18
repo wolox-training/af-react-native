@@ -9,20 +9,43 @@ interface Props {
   title?: string;
   icon: any;
   goBack?: boolean;
-  right?: boolean;
+  rightIcon?: any;
+  rightHandlePress?: () => void;
+  rightTitle?: string;
 }
 
-const Header = ({title, icon, goBack, right }: Props) => {
-  const handlePress = goBack && useNavigation().goBack;
+const Header = ({title, icon, goBack, rightIcon, rightTitle, rightHandlePress }: Props) => {
+  const navigate = useNavigation();
+
+  const handlePress = () => navigate.goBack()
+
   return (
-    <View style={[styles.header, right && styles.buttonRight]}>
-      <TouchableOpacity onPress={handlePress} style={[styles.button, right && styles.buttonRight]}>
+    <View style={styles.header}>
+      {goBack ?
+      <TouchableOpacity onPress={handlePress} style={styles.button}>
         <Image 
           source={icon}
-          style={[styles.arrow, right && styles.iconRight]}
+          style={styles.arrow}
         />
         <Text style={styles.title}>{title}</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> :
+      <View style={styles.button}>
+        <Image 
+          source={icon}
+          style={styles.arrow}
+        />
+        <Text style={styles.title}>{title}</Text>
+      </View>
+      }
+      {rightIcon && rightTitle && rightHandlePress &&
+        <TouchableOpacity onPress={rightHandlePress} style={[styles.button, rightIcon && styles.buttonRight]}>
+          <Image 
+            source={rightIcon}
+            style={styles.arrow}
+          />
+          <Text style={styles.title}>{rightTitle}</Text>
+        </TouchableOpacity>
+      }
       <ImageBackground 
         source={navbar}
         style={styles.backgroundImage} 
