@@ -20,7 +20,7 @@ const Header = ({title, icon, goBack, rightIcon, rightTitle, rightHandlePress }:
   const handlePress = () => navigate.goBack()
 
   return (
-    <View style={styles.header}>
+    <ImageBackground source={navbar} style={styles.header}>
       {goBack ?
       <TouchableOpacity onPress={handlePress} style={styles.button}>
         <Image 
@@ -46,11 +46,7 @@ const Header = ({title, icon, goBack, rightIcon, rightTitle, rightHandlePress }:
           <Text style={styles.title}>{rightTitle}</Text>
         </TouchableOpacity>
       }
-      <ImageBackground 
-        source={navbar}
-        style={styles.backgroundImage} 
-      />
-    </View>
+    </ImageBackground>
   )
 }
 
