@@ -7,7 +7,7 @@ const LIBRARY = 'library';
 const BOOK_DETAIL = 'book detail'
 
 export const booksOptions = () => ({
-  header: () => <Header title={BOOK_DETAIL} icon={arrow} goBack />,
+  header: () => <Header title={BOOK_DETAIL} icon={arrow} goBack rightIcon={notifications}/>,
   title: 'Titulo'
 })
 

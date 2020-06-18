@@ -22,13 +22,15 @@ const Header = ({title, icon, goBack, rightIcon, rightTitle, rightHandlePress }:
   return (
     <ImageBackground source={navbar} style={styles.header}>
       {goBack ?
-      <TouchableOpacity onPress={handlePress} style={styles.button}>
-        <Image 
-          source={icon}
-          style={styles.arrow}
-        />
+      <View style={styles.button}>
+        <TouchableOpacity onPress={handlePress}>
+          <Image 
+            source={icon}
+            style={styles.arrow}
+          />
+        </TouchableOpacity>
         <Text style={styles.title}>{title}</Text>
-      </TouchableOpacity> :
+      </View> :
       <View style={styles.button}>
         <Image 
           source={icon}
@@ -38,13 +40,15 @@ const Header = ({title, icon, goBack, rightIcon, rightTitle, rightHandlePress }:
       </View>
       }
       {rightIcon && rightTitle && rightHandlePress &&
-        <TouchableOpacity onPress={rightHandlePress} style={[styles.button, rightIcon && styles.buttonRight]}>
-          <Image 
-            source={rightIcon}
-            style={styles.arrow}
-          />
+        <View style={styles.buttonRight}>
+          <TouchableOpacity onPress={rightHandlePress}>
+            <Image 
+              source={rightIcon}
+              style={styles.arrow}
+            />
+          </TouchableOpacity>
           <Text style={styles.title}>{rightTitle}</Text>
-        </TouchableOpacity>
+        </View>
       }
     </ImageBackground>
   )
