@@ -3,7 +3,6 @@ import thunk from 'redux-thunk';
 
 import books from './books/reducer'; 
 
-
 const reducers = combineReducers({
   books
 })

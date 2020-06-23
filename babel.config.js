@@ -13,6 +13,7 @@ module.exports = {
           '@config': './src/config',
           '@constants': './src/constants',
           '@interfaces': './src/interfaces',
+          '@redux': './src/redux',
           '@screens': './src/app/screens',
           '@services': './src/services',
         }

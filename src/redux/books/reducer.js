@@ -9,15 +9,15 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.GET_BOOKS: 
-      return {
+    return {
         ...state,
         loading: true
       };
-    case actions.GET_BOOKS_SUCCESS:
+      case actions.GET_BOOKS_SUCCESS:
       return {
         ...state,
         loading: false,
-        books: actions.payload
+        books: action.payload
       }
     case actions.GET_BOOKS_FAILURE:
       return {

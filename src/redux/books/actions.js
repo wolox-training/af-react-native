@@ -15,13 +15,13 @@ export const actionCreator = {
     await dispatch({type: actions.GET_BOOKS});
     const response = await getBooks();
     if(response.data) {
-      return await dispatch({
+      dispatch({
         type: actions.GET_BOOKS_SUCCESS,
         payload: response.data
       })
     }
     else{
-      return await dispatch({
+      dispatch({
         type: actions.GET_BOOKS_FAILURE
       })
     }
