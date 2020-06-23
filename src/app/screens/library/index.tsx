@@ -3,7 +3,7 @@ import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
 import BookCard from './components/bookCard'
-import { booksList } from '@constants/mocks';
+// import { booksList } from '@constants/mocks';
 import { Book } from '@interfaces/books';
 
 import styles from './styles';
@@ -13,12 +13,15 @@ const renderItem =({item}: Book) => (
   <BookCard item={item} />
 );
 
-const Library = (props) => {
-  // const [booksList, setBookList] = useState([]);
+const Library = ({getBooks}: Book) => {
+  const [booksList, setBookList] = useState([]);
   
   useEffect(() => {
-    // const books = getBooks();
-    console.log(props.getBooks())
+    const asyncBooks = async () => {
+      const resp = await getBooks();
+      setBookList(resp.payload)
+    }
+    asyncBooks();
   },[])
 
   return(
@@ -34,17 +37,10 @@ const Library = (props) => {
   )
 }
 
-const mapStateToProps = state => {
-  console.log(state);
-  return {
-
-  }
-};
-
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
     getBooks: () => dispatch(actionCreator.getBooks())
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Library);
+export default connect(null, mapDispatchToProps)(Library);

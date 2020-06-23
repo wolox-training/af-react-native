@@ -11,17 +11,17 @@ export const actions = {
 }
 
 export const actionCreator = {
-  getBooks: (dispatch) => {
-    dispatch({type: actions.GET_BOOKS});
-    const response = getBooks()
-    if(response) {
-      dispatch({
+  getBooks: () => async (dispatch) => {
+    await dispatch({type: actions.GET_BOOKS});
+    const response = await getBooks();
+    if(response.data) {
+      return await dispatch({
         type: actions.GET_BOOKS_SUCCESS,
         payload: response.data
       })
     }
     else{
-      dispatch({
+      return await dispatch({
         type: actions.GET_BOOKS_FAILURE
       })
     }
