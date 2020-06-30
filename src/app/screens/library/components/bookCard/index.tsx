@@ -9,12 +9,12 @@ import { Book } from '@interfaces/books';
 import styles from './styles.module';
 
 const BookCard = ( {item}: Book) => {
-  const {img, title, author} = item;
+  const {image, title, author} = item;
   const navigation = useNavigation();
   return (
     <TouchableOpacity onPress={() => navigation.navigate(BOOK_DETAIL, item)} style={styles.button}>
       <View style={styles.container}>
-        <Image source={img}/>
+        <Image source={{uri: image}}/>
         <View style={styles.textContainer}>
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.subTitle}>{author}</Text>

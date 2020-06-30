@@ -1,8 +1,8 @@
 export interface Book {
   title: string;
   author: string;
-  img: any;
-  type: string;
+  image: any;
+  genre: string;
   year: string;
   comment: Comments[];
 }
@@ -10,6 +10,6 @@ export interface Book {
 export interface Comments {
   id: string;
   name: string;
-  img: any;
+  image: any;
   text: string;
 }

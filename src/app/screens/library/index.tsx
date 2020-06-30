@@ -6,7 +6,7 @@ import BookCard from './components/bookCard'
 import { Book } from '@interfaces/books';
 
 import styles from './styles';
-import { actionCreator } from '@src/redux/books/actions';
+import { actionCreator } from '@redux/books/actions';
 
 const renderItem =({item}: Book) => (
   <BookCard item={item} />
@@ -14,7 +14,7 @@ const renderItem =({item}: Book) => (
 
 const Library = () => {
   const dispatch = useDispatch();
-  const books = useSelector((state : Book) => state.books.books)
+  const books = useSelector((state : Book) => state.books.books.page)
   useEffect(() => {
     dispatch(actionCreator.getBooks());
   },[])
