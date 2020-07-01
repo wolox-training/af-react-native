@@ -1,4 +1,5 @@
 import { booksList } from '@constants/mocks';
+import { books } from '../../services/BookService'
 
 const getBooks = () => {
   return {data: booksList}
@@ -12,9 +13,9 @@ export const actions = {
 
 export const actionCreator = {
   getBooks: () => async (dispatch) => {
-    await dispatch({type: actions.GET_BOOKS});
-    const response = await getBooks();
-    if(response.data) {
+    dispatch({type: actions.GET_BOOKS});
+    const response = await books.getBookDetail();
+    if(response.ok) {
       dispatch({
         type: actions.GET_BOOKS_SUCCESS,
         payload: response.data
