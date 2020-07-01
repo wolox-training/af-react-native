@@ -5,9 +5,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Library from '@app/screens/library';
 import BookDetail from '@screens/bookDetails';
-import { LIBRARY, BOOK_DETAIL, WISH } from '@constants/routes';
+import { LIBRARY, BOOK_DETAIL, WISH, LOGIN } from '@constants/routes';
 import TabBarIcon from '@components/tabBarIcon';
 import Wish from '@screens/wish';
+import Login from '@screens/login';
 import { booksOptions, libraryOptions } from './src/config/navigationOptions';
 
 const Stack = createStackNavigator();
@@ -40,6 +41,17 @@ const AppNavigation = () =>{
   )
 }
 
+const AuthNavigation = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen 
+        name={LOGIN}
+        component={Login}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  )
+}
 
 
-export default AppNavigation;
+export default AuthNavigation;

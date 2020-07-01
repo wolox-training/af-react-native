@@ -8,11 +8,12 @@ interface Button {
   style?: any;
   fill?: boolean;
   onPress: () => void;
+  textStyle?: any;
 }
 
-const Button = ({title, style, fill, onPress}: Button) => (
+const Button = ({title, style, fill, onPress, textStyle}: Button) => (
   <TouchableOpacity style={[styles.button, fill && styles.fillButton, style]} onPress={onPress}>
-    <Text style={[styles.buttonText, fill && styles.fillButtonText]}>{title}</Text>
+    <Text style={[styles.buttonText, fill && styles.fillButtonText, textStyle]}>{title}</Text>
   </TouchableOpacity>
 );
 
