@@ -1,9 +1,4 @@
-import { booksList } from '@constants/mocks';
 import { books } from '../../services/BookService'
-
-const getBooks = () => {
-  return {data: booksList}
-}
 
 export const actions = {
   GET_BOOKS: 'GET_BOOKS',
@@ -28,4 +23,3 @@ export const actionCreator = {
     }
   }
 }
-
