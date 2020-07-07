@@ -1,6 +1,5 @@
-import { auth } from '../../services/AuthService';
-import { NavigationAction } from '@react-navigation/native';
-import { HOME } from '../../constants/routes';
+import { auth } from '@services/AuthService';
+import { HOME } from '@constants/routes';
 
 export const actions = {
   LOGIN: 'LOGIN',

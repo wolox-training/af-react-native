@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { View, TextInput, ImageBackground, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import Button from '../../components/button';
-import { actionCreator } from '../../../redux/auth/actions';
+import Button from '@components/button';
+import { actionCreator } from '@redux/auth/actions';
 
 import background from '@assets/bc_inicio.png';
 import logo from '@assets/Group.png';
