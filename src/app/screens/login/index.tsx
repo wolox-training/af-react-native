@@ -22,8 +22,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const onSubmit = () => {
-    console.log('entro')
-    dispatch(actionCreator.login({email, password}))
+    dispatch(actionCreator.login({email, password}, navigation))
   }
 
   return (
