@@ -4,9 +4,11 @@ import thunk from 'redux-thunk';
 import Reactotron from '../config/ReactotronConfig';
 
 import books from './books/reducer'; 
+import auth from './auth/reducer';
 
 const reducers = combineReducers({
-  books
+  books,
+  auth
 });
 
 const middlewares = [applyMiddleware(thunk)];
