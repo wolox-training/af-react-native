@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import BookCard from './components/bookCard'
 import { Book } from '@interfaces/books';
+import withSpinner from '../../components/spinner'
 
 import styles from './styles';
 import { actionCreator } from '@redux/books/actions';
@@ -14,7 +15,8 @@ const renderItem =({item}: Book) => (
 
 const Library = () => {
   const dispatch = useDispatch();
-  const books = useSelector((state : Book) => state.books.books.page)
+  const books = useSelector((state : Book) => state.books.books.page);
+  const isLoading = useSelector((state : Book) => state.books.loading);
   useEffect(() => {
     dispatch(actionCreator.getBooks());
   },[])
@@ -32,4 +34,4 @@ const Library = () => {
   )
 }
 
-export default Library;
+export default withSpinner(Library);
