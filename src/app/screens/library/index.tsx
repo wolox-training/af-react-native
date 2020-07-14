@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
-import { View, FlatList, Text } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import BookCard from './components/bookCard'
 import { Book } from '@interfaces/books';
-import withSpinner from '../../components/spinner'
+import WithSpinner from '../../components/spinner'
 
 import styles from './styles';
 import { actionCreator } from '@redux/books/actions';
+
+const ListWithSpinner = WithSpinner(FlatList)
 
 const renderItem =({item}: Book) => (
   <BookCard item={item} />
@@ -23,15 +25,14 @@ const Library = () => {
 
   return(
     <View style={styles.container}>
-      {books && 
-        <FlatList 
-          data={books}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-        />
-      }
+      <ListWithSpinner 
+        data={books}
+        renderItem={renderItem}
+        keyExtractor={(item: any) => item.id}
+        isLoading={isLoading}
+      />
     </View>
   )
 }
 
-export default withSpinner(Library);
+export default Library;
