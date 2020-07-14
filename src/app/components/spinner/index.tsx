@@ -9,7 +9,7 @@ const withSpinner = (Component: any) => (props: any) => {
   return (
     <>
     {isLoading ?
-      <View style={[styles.container, styles.horizontal]}>
+      <View style={styles.container}>
         <ActivityIndicator size="large" color={TURQUOISE} />
       </View> :
       <Component {...otherProps} />
