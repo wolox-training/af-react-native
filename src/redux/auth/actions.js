@@ -1,10 +1,14 @@
 import { auth } from '@services/AuthService';
-import { HOME } from '@constants/routes';
+import { AUTH_LOADING } from '@constants/routes';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export const actions = {
   LOGIN: 'LOGIN',
   LOGIN_SUCCESS: 'LOGIN_SUCCESS',
-  LOGIN_FAILURE: 'LOGIN_FAILURE'
+  LOGIN_FAILURE: 'LOGIN_FAILURE',
+  AUTH: 'AUTH',
+  AUTH_SUCCESS: 'AUTH_SUCCESS',
+  AUTH_FAILURE: 'AUTH_FAILURE',
 }
 
 export const actionCreator = {
@@ -16,7 +20,11 @@ export const actionCreator = {
         type: actions.LOGIN_SUCCESS,
         payload: resp.data,
       });
-      navigation.navigate(HOME)
+      const { client, uid, 'access-token': accessToken } = resp.headers;
+      await AsyncStorage.setItem('token', accessToken);
+      await AsyncStorage.setItem('client', client);
+      await AsyncStorage.setItem('uid', uid);
+      navigation.navigate(AUTH_LOADING)
     }
     else {
       dispatch({
@@ -24,5 +32,9 @@ export const actionCreator = {
         payload: resp.data.errors[0]
       });
     }
+  },
+  auth: (credentials) => async (dispatch) => {
+    dispatch({type: actions.AUTH});
+    await auth.auth(credentials);
   }
 }

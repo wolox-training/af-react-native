@@ -25,6 +25,23 @@ const reducer = (state = initialState, action) => {
         loading: false,
         error: action.payload
       }
+    case actions.AUTH:
+      return { 
+        ...state,
+        loading: true
+      }
+    case actions.AUTH_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        auth: action.payload
+      }
+    case actions.AUTH_FAILURE:      
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      }
     default:
       return state;
   }
