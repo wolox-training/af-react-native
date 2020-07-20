@@ -10,7 +10,7 @@ import WithSpinner from '../../components/spinner'
 import styles from './styles';
 import { actionCreator } from '@redux/books/actions';
 
-const ListWithSpinner = WithSpinner(FlatList)
+const ListWithSpinner = WithSpinner(FlatList);
 
 const renderItem =({item}: Book) => (
   <BookCard item={item} />
