@@ -2,6 +2,8 @@ import { auth, storage } from '@services/AuthService';
 import { INITIAL_LOADING } from '@constants/routes';
 import { CommonActions } from '@react-navigation/native';
 import { HOME, LOGIN } from '@constants/routes';
+import AsyncStorage from '@react-native-community/async-storage';
+
 
 export const actions = {
   LOGIN: 'LOGIN',
@@ -22,8 +24,9 @@ export const actionCreator = {
         type: actions.LOGIN_SUCCESS,
         payload: resp.data,
       });
-      const { client, uid, 'access-token': token } = resp.headers;
-      storage.setItem({client, uid, token});
+      let headers = resp.headers;
+      headers = JSON.stringify(headers)
+      await storage.setAuthHeaders(headers);
       navigation.navigate(INITIAL_LOADING)
     }
     else {
@@ -35,11 +38,13 @@ export const actionCreator = {
   },
   authSetup: (navigation) => async (dispatch) => {
     dispatch({type: actions.AUTH});
-    const resp = await auth.auth();
-    if(resp.ok) {
+    const headers = await storage.getAuthHeaders();
+    if(headers) {
       dispatch({
         type: actions.AUTH_SUCCESS
       });
+      let jsonHeaders = JSON.parse(headers);
+      auth.authHeaders(jsonHeaders)
       navigation.dispatch(
         CommonActions.reset({
           index: 1,
