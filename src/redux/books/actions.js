@@ -1,6 +1,6 @@
-import { books } from '../../services/BookService';
+import { books } from '@services/BookService';
 import { CommonActions } from '@react-navigation/native';
-import { LOGIN } from '../../constants/routes';
+import { LOGIN } from '@constants/routes';
 
 
 export const actions = {

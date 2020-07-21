@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import WithSpinner from '@components/spinner';
 import { actionCreator } from '@redux/auth/actions';
-import { State } from '../../../interfaces/books';
+import { State } from '@interfaces/books';
 
 const AuthWithSpinner = WithSpinner(View);
 
