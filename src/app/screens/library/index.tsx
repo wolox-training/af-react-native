@@ -3,9 +3,9 @@ import { View, FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 
-import BookCard from './components/bookCard'
+import BookCard from './components/bookCard';
 import { Book } from '@interfaces/books';
-import WithSpinner from '../../components/spinner'
+import WithSpinner from '@components/spinner';
 
 import styles from './styles';
 import { actionCreator } from '@redux/books/actions';

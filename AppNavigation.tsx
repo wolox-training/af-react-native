@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Library from '@app/screens/library';
 import BookDetail from '@screens/bookDetails';
-import { LIBRARY, BOOK_DETAIL, WISH, LOGIN, HOME, AUTH_LOADING } from '@constants/routes';
+import { LIBRARY, BOOK_DETAIL, WISH, LOGIN, HOME, INITIAL_LOADING } from '@constants/routes';
 import TabBarIcon from '@components/tabBarIcon';
 import Wish from '@screens/wish';
 import Login from '@screens/login';
@@ -46,7 +46,7 @@ const AppNavigation = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen 
-        name={AUTH_LOADING}
+        name={INITIAL_LOADING}
         component={AuthLoading}
         options={{headerShown: false}}
       />

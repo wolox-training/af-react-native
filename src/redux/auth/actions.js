@@ -1,6 +1,7 @@
-import { auth } from '@services/AuthService';
-import { AUTH_LOADING } from '@constants/routes';
-import AsyncStorage from '@react-native-community/async-storage';
+import { auth, storage } from '@services/AuthService';
+import { INITIAL_LOADING } from '@constants/routes';
+import { CommonActions } from '@react-navigation/native';
+import { HOME, LOGIN } from '@constants/routes';
 
 export const actions = {
   LOGIN: 'LOGIN',
@@ -12,6 +13,7 @@ export const actions = {
 }
 
 export const actionCreator = {
+  // TODO: refactor navigation
   login: (user, navigation) => async (dispatch) => {
     dispatch({type: actions.LOGIN});
     const resp = await auth.login(user);
@@ -20,11 +22,9 @@ export const actionCreator = {
         type: actions.LOGIN_SUCCESS,
         payload: resp.data,
       });
-      const { client, uid, 'access-token': accessToken } = resp.headers;
-      await AsyncStorage.setItem('token', accessToken);
-      await AsyncStorage.setItem('client', client);
-      await AsyncStorage.setItem('uid', uid);
-      navigation.navigate(AUTH_LOADING)
+      const { client, uid, 'access-token': token } = resp.headers;
+      storage.setItem({client, uid, token});
+      navigation.navigate(INITIAL_LOADING)
     }
     else {
       dispatch({
@@ -33,8 +33,30 @@ export const actionCreator = {
       });
     }
   },
-  auth: (credentials) => async (dispatch) => {
+  authSetup: (navigation) => async (dispatch) => {
     dispatch({type: actions.AUTH});
-    await auth.auth(credentials);
-  }
+    const resp = await auth.auth();
+    if(resp.ok) {
+      dispatch({
+        type: actions.AUTH_SUCCESS
+      });
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 1,
+          routes: [{ name: HOME }]
+        })
+      )
+    }
+    else {
+      dispatch({
+        type: actions.AUTH_FAILURE
+      })
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{ name: LOGIN }]
+        })
+      )
+    }
+  },
 }

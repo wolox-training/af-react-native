@@ -3,7 +3,8 @@ import { actions } from './actions';
 const initialState = {
   auth: {},
   loading: false,
-  error: null
+  error: null,
+  authLoading: true,
 }
 
 const reducer = (state = initialState, action) => {
@@ -28,19 +29,18 @@ const reducer = (state = initialState, action) => {
     case actions.AUTH:
       return { 
         ...state,
-        loading: true
+        authLoading: true
       }
     case actions.AUTH_SUCCESS:
       return {
         ...state,
-        loading: false,
-        auth: action.payload
+        authLoading: false,
       }
     case actions.AUTH_FAILURE:      
       return {
         ...state,
-        loading: false,
-        error: action.payload
+        authLoading: false,
+        error: 'Error'
       }
     default:
       return state;
