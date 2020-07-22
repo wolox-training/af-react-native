@@ -6,6 +6,8 @@ const AUTH_HEADERS = 'AuthHeaders';
 export const storage = {
   setAuthHeaders: async (headers) => await AsyncStorage.setItem(AUTH_HEADERS, headers),
   getAuthHeaders: async () => await AsyncStorage.getItem(AUTH_HEADERS),
+  getAuthKeys: async () => await AsyncStorage.getAllKeys(),
+  removeAuthHeaders: async (item) => await AsyncStorage.removeItem(item),
 };
 
 

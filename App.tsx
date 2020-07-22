@@ -9,12 +9,12 @@ import store from './src/redux/store';
 import AppNavigation from './AppNavigation';
 
 const App = () => {
-  const navigation = useNavigation();
-  const dispatch = useDispatch();
+  // const navigation = useNavigation();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(actionCreator.authSetup(navigation))
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(actionCreator.authSetup(navigation))
+  // }, [dispatch])
 
   return (
     <Provider store={store}>

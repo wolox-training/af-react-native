@@ -1,7 +1,9 @@
 import React from 'react';
 import { Image, Text, View, TouchableOpacity, ImageBackground } from 'react-native';
+import { useDispatch } from 'react-redux';
 import navbar from '@assets/bc_nav_bar.png';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
+import { actionCreator } from '../../../redux/auth/actions';
 
 import styles from './styles';
 
@@ -16,8 +18,10 @@ interface Props {
 
 const Header = ({title, icon, goBack, rightIcon, rightTitle, rightHandlePress }: Props) => {
   const navigate = useNavigation();
+  const dispatch = useDispatch();
 
-  const handlePress = () => navigate.goBack()
+  const handlePress = () => navigate.goBack();
+  const handleLogout = () => dispatch(actionCreator.logout(navigate));
 
   return (
     <ImageBackground source={navbar} style={styles.header}>
@@ -32,10 +36,12 @@ const Header = ({title, icon, goBack, rightIcon, rightTitle, rightHandlePress }:
         <Text style={styles.title}>{title}</Text>
       </View> :
       <View style={styles.button}>
-        <Image 
-          source={icon}
-          style={styles.arrow}
-        />
+        <TouchableOpacity onPress={handleLogout}>
+          <Image 
+            source={icon}
+            style={styles.arrow}
+          />
+        </TouchableOpacity>
         <Text style={styles.title}>{title}</Text>
       </View>
       }
