@@ -3,7 +3,7 @@ import { Image, Text, View, TouchableOpacity, ImageBackground } from 'react-nati
 import { useDispatch } from 'react-redux';
 import navbar from '@assets/bc_nav_bar.png';
 import { useNavigation } from '@react-navigation/native';
-import { actionCreator } from '../../../redux/auth/actions';
+import { actionCreator } from '@redux/auth/actions';
 
 import styles from './styles';
 
