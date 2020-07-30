@@ -8,11 +8,11 @@ import { Book } from '@interfaces/books';
 import styles from './styles';
 
 const BookDetailsCard = ({ book }: Book) => {
-  const { title, img, author, year, type } = book;
+  const { title, image: { url }, author, year, type } = book;
   return(
     <Card>
       <View style={styles.container}>
-      <Image style={styles.img} source={img}/>
+      <Image style={styles.img} source={{ uri: url }}/>
       <View style={styles.content}>
         <Text style={styles.title} numberOfLines={1}>{title}</Text>
         <View>

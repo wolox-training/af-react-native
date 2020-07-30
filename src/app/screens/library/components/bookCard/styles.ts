@@ -28,7 +28,11 @@ const styles = StyleSheet.create({
     color: TUNDORA,
     fontSize: 15,
     lineHeight: 18
-  }
+  },
+  img: {
+    height: 70,
+    width: 50
+  },
 })
 
 export default styles;

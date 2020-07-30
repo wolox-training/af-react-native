@@ -1,4 +1,7 @@
-import { books } from '../../services/BookService'
+import { books } from '@services/BookService';
+import { CommonActions } from '@react-navigation/native';
+import { LOGIN } from '@constants/routes';
+
 
 export const actions = {
   GET_BOOKS: 'GET_BOOKS',
@@ -7,7 +10,7 @@ export const actions = {
 }
 
 export const actionCreator = {
-  getBooks: () => async (dispatch) => {
+  getBooks: (navigation) => async (dispatch) => {
     dispatch({type: actions.GET_BOOKS});
     const response = await books.getBookDetail();
     if(response.ok) {
@@ -16,10 +19,16 @@ export const actionCreator = {
         payload: response.data
       })
     }
-    else{
+    else {
       dispatch({
         type: actions.GET_BOOKS_FAILURE
-      })
+      });
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{ name: LOGIN }]
+        })
+      )
     }
   }
 }

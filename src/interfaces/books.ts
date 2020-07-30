@@ -21,6 +21,9 @@ export interface State {
     error: string;
   };
   auth: {
+    authLoading: boolean;
+    loading: boolean;
+    error: string;
     auth: {
       data: {
         id: number;
@@ -29,8 +32,6 @@ export interface State {
         last_name: string;
         uid: string
       };
-      loading: boolean;
-      error: string;
     }
   }
 }
