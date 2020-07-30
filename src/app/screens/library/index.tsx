@@ -1,26 +1,25 @@
 import React, { useEffect } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, ListRenderItem } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
+import { Book, State } from '@interfaces/books';
+import WithSpinner from '@components/spinner';
+import { actionCreator } from '@redux/books/actions';
 
 import BookCard from './components/bookCard';
-import { Book } from '@interfaces/books';
-import WithSpinner from '@components/spinner';
-
 import styles from './styles';
-import { actionCreator } from '@redux/books/actions';
 
 const ListWithSpinner = WithSpinner(FlatList);
 
-const renderItem =({item}: Book) => (
+const renderItem: ListRenderItem<Book> =({ item }) => (
   <BookCard item={item} />
 );
 
 const Library = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const books = useSelector((state : Book) => state.books.books);
-  const isLoading = useSelector((state : Book) => state.books.loading);
+  const books = useSelector((state : State) => state.books.books);
+  const isLoading = useSelector((state : State) => state.books.loading);
   useEffect(() => {
     dispatch(actionCreator.getBooks(navigation));
   },[])
@@ -30,7 +29,7 @@ const Library = () => {
       <ListWithSpinner 
         data={books}
         renderItem={renderItem}
-        keyExtractor={(item: any) => item.id}
+        keyExtractor={(item: Book) => `${item.id}`}
         isLoading={isLoading}
       />
     </View>

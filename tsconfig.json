@@ -39,7 +39,20 @@
     /* Module Resolution Options */
     "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
     "baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
-    // "paths": {},                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@assets/*": ["src/app/assets/*"],
+      "@components/*": ["src/app/components/*"],
+      "@config/*": ["src/config/*"],
+      "@constants/*": ["src/constants/*"],
+      "@screens/*": ["src/app/screens/*"],
+      "@services/*": ["src/services/*"],
+      "@redux/*": ["src/redux/*"],
+      "@contexts/*": ["src/contexts/*"],
+      "@utils/*": ["src/utils/*"],
+      "@interfaces/*": ["src/interfaces/*"],
+      "@hooks/*": ["src/hooks/*"],
+    },                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */
     // "types": [],                           /* Type declaration files to be included in compilation. */

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { WHITE, TUNDORA } from '@constants/colors';
+import { WHITE, TUNDORA, TURQUOISE } from '@constants/colors';
 
 const styles = StyleSheet.create({
   card: {
@@ -34,7 +34,25 @@ const styles = StyleSheet.create({
     marginBottom: 0,
     height: 10,
     justifyContent: 'flex-end'
-  }
+  },
+  buttonRent: {
+    alignItems: 'center',
+    backgroundColor: TURQUOISE,
+    borderColor: TURQUOISE,
+    borderRadius: 100,
+    borderWidth: 1,
+    height: 50,
+    justifyContent: 'center',
+    marginBottom: 10,
+    width: '100%',
+  },
+  buttonText: {
+    color: WHITE,
+    fontSize: 15,
+    fontWeight: '900',
+    lineHeight: 19,
+    textTransform: 'uppercase',
+  },
 })
 
 export default styles;
