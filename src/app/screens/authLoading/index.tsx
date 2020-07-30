@@ -8,10 +8,10 @@ import { State } from '@interfaces/books';
 const AuthWithSpinner = WithSpinner(View);
 
 const AuthLoading = ({ navigation }: any) => {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(actionCreator.authSetup(navigation));
-  // },[])
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(actionCreator.authSetup(navigation));
+  },[])
 
   const loading = useSelector((state: State) => state.auth.authLoading)
   
