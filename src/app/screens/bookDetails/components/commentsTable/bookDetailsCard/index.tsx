@@ -1,14 +1,40 @@
-import React from 'react';
-import { Text, View, Image } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, Image, Animated, TouchableWithoutFeedback } from 'react-native';
 
 import Button from '@components/button';
 import Card from '@components/card';
+import { MOUNTAIN_MEADOW, TURQUOISE } from '@constants/colors'
 
 import { Book } from '@interfaces/books';
 import styles from './styles';
 
 const BookDetailsCard = ({ book }: Book) => {
   const { title, image: { url }, author, year, type } = book;
+  const [animation, setAnimation] = useState(new Animated.Value(0));
+
+  const boxInterpolation =  animation.interpolate({
+    inputRange: [0, 1],
+    outputRange:[TURQUOISE , MOUNTAIN_MEADOW]
+  })
+
+  const radiusInterpolation = animation.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 50]
+  })
+
+  const animatedStyle = {
+    backgroundColor: boxInterpolation,
+    borderRadius: radiusInterpolation
+  }
+
+  const handlePress = () => {
+    Animated.timing(animation, {
+      toValue:1,
+      duration: 1000,
+      useNativeDriver: false
+    }).start()
+  }
+
   return(
     <Card>
       <View style={styles.container}>
@@ -23,7 +49,11 @@ const BookDetailsCard = ({ book }: Book) => {
       </View>
       </View>
       <Button title="add comment" onPress={() => console.log('add comment')}/>
-      <Button title="return book" onPress={() =>console.log('return book')} fill/>
+      <TouchableWithoutFeedback onPress={handlePress}>
+        <Animated.View style={{...styles.buttonRent, ...animatedStyle}}>
+         <Text style={styles.buttonText}>RENT</Text>
+        </Animated.View>
+      </TouchableWithoutFeedback>
     </Card>
   )
 }

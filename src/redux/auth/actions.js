@@ -4,7 +4,6 @@ import { CommonActions } from '@react-navigation/native';
 import { HOME, LOGIN } from '@constants/routes';
 import AsyncStorage from '@react-native-community/async-storage';
 
-
 export const actions = {
   LOGIN: 'LOGIN',
   LOGIN_SUCCESS: 'LOGIN_SUCCESS',
@@ -12,6 +11,9 @@ export const actions = {
   AUTH: 'AUTH',
   AUTH_SUCCESS: 'AUTH_SUCCESS',
   AUTH_FAILURE: 'AUTH_FAILURE',
+  LOGOUT: 'LOGOUT',
+  LOGOUT_SUCCESS: 'LOGOUT_SUCCESS',
+  LOGOUT_FAILURE: 'LOGOUT_FAILURE',
 }
 
 export const actionCreator = {
@@ -64,4 +66,24 @@ export const actionCreator = {
       )
     }
   },
+  logout: navigation => async dispatch => {
+    dispatch({ type: actions.LOGOUT});
+    const keys = await storage.getAuthKeys();
+    if(keys) {
+      dispatch({ type: actions.LOGOUT_SUCCESS})
+      keys.forEach(key => {
+        storage.removeAuthHeaders(key)
+      });
+      
+    }
+    else {
+      dispatch({ type: actions.LOGOUT_FAILURE});
+    }
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [{ name: LOGIN }]
+      })
+    )
+  }
 }

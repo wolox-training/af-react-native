@@ -8,7 +8,11 @@ import { Book } from '@interfaces/books';
 
 import styles from './styles';
 
-const BookCard = ( {item}: Book) => {
+interface Props {
+  item: Book;
+}
+
+const BookCard = ({ item }: Props) => {
   const {image: { url }, title, author} = item;
   const navigation = useNavigation();
   return (
